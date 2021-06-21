@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\api\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ForgotController;
+use App\Http\Controllers\api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
+Route::post('forgot-password',[ForgotController::class,'forgotPassword']);
+Route::post('reset-password',[ForgotController::class,'resetPassword']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('profile',[UserController::class,'profile']);

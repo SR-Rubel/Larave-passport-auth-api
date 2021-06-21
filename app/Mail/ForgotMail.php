@@ -15,9 +15,12 @@ class ForgotMail extends Mailable
      * Create a new message instance.
      *
      * @return void
+     * 
      */
-    public function __construct()
+    public $token;
+    public function __construct($token)
     {
+        $this->data=$token;
         //
     }
 
@@ -28,6 +31,7 @@ class ForgotMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $data=$this->data;
+        return $this->view('mail.forgot',compact('data'));
     }
 }

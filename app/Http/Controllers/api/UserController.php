@@ -44,7 +44,7 @@ class UserController extends Controller
         $crediantials=$request->only(['email','password']);
 
         if(!auth()->attempt($crediantials)){
-            return response()->json(['status'=>0,'msg'=>'you are unauthencated'],401);
+            return response()->json(['status'=>0,'msg'=>'invalid credintials'],401);
         }
 
         $token=auth()->user()->createToken('auth_token')->accessToken;

@@ -52,6 +52,8 @@ class Handler extends ExceptionHandler
         if ($e instanceof AuthenticationException) {
             return $this->unauthenticated($request, $e);
         }
+
+        return parent::render($request, $e);
         
     }
 
