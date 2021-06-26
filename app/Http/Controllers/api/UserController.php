@@ -28,7 +28,7 @@ class UserController extends Controller
         $user->phone_no=$request->phone_no;
         $user->save();
 
-        $token=$user->createToken('auth_token');
+        $token=$user->createToken('auth_token')->accessToken;
 
         return response()->json(["status"=>1,"msg"=>'registered!',"token"=>$token],200);
     }
